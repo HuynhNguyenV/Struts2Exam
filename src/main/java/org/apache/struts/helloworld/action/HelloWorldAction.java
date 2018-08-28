@@ -5,6 +5,8 @@ import org.apache.struts.helloworld.model.MessageStore;
 
 public class HelloWorldAction extends ActionSupport {
     private MessageStore messageStore;
+
+    private static int helloCount = 0;
     public String execute(){
         messageStore = new MessageStore();
 
@@ -13,5 +15,10 @@ public class HelloWorldAction extends ActionSupport {
 
     public MessageStore getMessageStore() {
         return messageStore;
+    }
+
+    public int getHelloCount(){
+        helloCount++;
+        return helloCount;
     }
 }
