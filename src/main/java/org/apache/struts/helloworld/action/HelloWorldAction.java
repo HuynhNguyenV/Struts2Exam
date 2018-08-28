@@ -5,11 +5,24 @@ import org.apache.struts.helloworld.model.MessageStore;
 
 public class HelloWorldAction extends ActionSupport {
     private MessageStore messageStore;
-
+    private String userName;
     private static int helloCount = 0;
-    public String execute(){
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String execute() throws Exception{
         messageStore = new MessageStore();
 
+        if(userName != null){
+            messageStore.setMessage(messageStore.getMessage() + " " + userName);
+        }
+        helloCount++;
         return SUCCESS;
     }
 
@@ -18,7 +31,6 @@ public class HelloWorldAction extends ActionSupport {
     }
 
     public int getHelloCount(){
-        helloCount++;
         return helloCount;
     }
 }

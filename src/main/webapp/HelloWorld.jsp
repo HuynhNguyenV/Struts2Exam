@@ -11,5 +11,7 @@
 
 <p>I've said hello <s:property value="helloCount"/> time!</p>
 <p><s:property value="messageStore" /></p>
+
+
 </body>
 </html>
